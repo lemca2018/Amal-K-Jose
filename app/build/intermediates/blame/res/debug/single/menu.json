@@ -4,6 +4,10 @@
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\menu\\main.xml"
     },
     {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\menu\\shedule_contacts.xml",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\menu\\shedule_contacts.xml"
+    },
+    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\menu\\shedule.xml",
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\menu\\shedule.xml"
     },
