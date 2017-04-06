@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layouts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.amalkjose.whatsappassistant.Main3Activity">
+    tools:context="com.amalkjose.whatsappassistant.Main3Activity">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/mp3"
+        android:orientation="vertical"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-40dp"
+            android:src="@drawable/icon_128"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Whatsapp Assistant"
+            android:textStyle="bold"
+            android:layout_margin="3dp"
+            android:textSize="26dp"
+            android:textColor="@color/blue"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Email address"
+            android:textSize="18dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/wa_bg"
+            android:textAlignment="center" />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/a3_email"
+            android:inputType="textEmailAddress"
+            android:maxLength="50"
+            android:layout_gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter new 6-digit PIN"
+            android:textSize="18dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/wa_bg"
+            android:textAlignment="center" />
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/a3_pin1"
+            android:inputType="numberPassword"
+            android:maxLength="6"
+            android:layout_gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm your PIN"
+            android:textSize="18dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/wa_bg"
+            android:textAlignment="center" />
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:inputType="numberPassword"
+            android:id="@+id/a3_pin2"
+            android:maxLength="6"
+            android:layout_gravity="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_width="130dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/a3_reg_btn"
+                android:paddingBottom="5dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:text="Register"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

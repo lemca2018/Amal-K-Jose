@@ -1,0 +1,7 @@
+#Tue Apr 04 23:55:18 IST 2017
+base.0=C\:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_c996894fb53aa7c6db80c5164396510d6c2e515e
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5633f1b24a54a06f20fe1f09b4ac5f6c06b2a042\\classes.dex
+base.1=C\:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5633f1b24a54a06f20fe1f09b4ac5f6c06b2a042
+file.0=C\:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_c996894fb53aa7c6db80c5164396510d6c2e515e\\classes.dex
