@@ -64,12 +64,12 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
-        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
-        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\nav_header_main.xml"
-    },
-    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
@@ -214,6 +214,10 @@
     {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_item.xml",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\list_item.xml"
     },
     {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
