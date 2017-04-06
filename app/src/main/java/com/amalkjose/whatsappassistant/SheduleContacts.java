@@ -37,6 +37,7 @@ public class SheduleContacts extends AppCompatActivity
     ListView listView;
     EditText editText;
     String[] items;
+    String[] numbers;
     ArrayAdapter<String> adapter;
     ArrayList<String> listItems;
     @Override
@@ -174,14 +175,17 @@ public class SheduleContacts extends AppCompatActivity
                 items[i]=people.getString(indexName);
                 i++;
             }while (people.moveToNext());
+            Arrays.sort(items);
+            numbers=new String[people.getCount()];
+            for(int j=0;j<people.getCount();j++){
+                numbers[j]=items[j];
+            }
         }
         people.close();
-        Arrays.sort(items);
         listItems=new ArrayList<>(Arrays.asList(items));
         adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.textitem,listItems);
         listView.setAdapter(adapter);
     }
-
 }
 class Person{
     String name;
