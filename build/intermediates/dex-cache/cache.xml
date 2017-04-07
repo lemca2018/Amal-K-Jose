@@ -3,6 +3,78 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\mail\.android\build-cache\80f2f1e96ceda52aeb14527ffea073ec21a58d2a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_ea40ca797bb885c423167220792876b5e05755c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mail\.android\build-cache\c3f64366ef51991dab3d4eeaf61f8a75da13ca98\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_3783c4ce2093cc3be1dab0cf6b031c818f4f7bc8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\libs\activation.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\2\activation_a535818c2b911a8db780c5d69c8c1d20653073fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mail\.android\build-cache\f3ae1837f90f1b0c29e2291838d42f43b09d56a7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_268f6d0ca387f499ff8dbd4f6f032c6568db7350.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3a98109cbb3d11fb380f8de16bb04c96aa1df4b9">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c996894fb53aa7c6db80c5164396510d6c2e515e\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mail\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_e751db504dfb678a9fef7b0bc9d16b709b19dfa4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\mail\.android\build-cache\ebff782fcd299edeaea9275a4812d0b5ca33bb2a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_329b7c27dcfdaa286914985b558c10b65ad37be0.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\libs\mail.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\2\mail_b3f55d8febb72288203f94556e6d004b64ec31e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\mail\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
         jumboMode="false"
         optimize="true"
@@ -30,15 +102,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\mail\.android\build-cache\80f2f1e96ceda52aeb14527ffea073ec21a58d2a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_ea40ca797bb885c423167220792876b5e05755c0.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\mail\.android\build-cache\891e3ffc1961f331549e5bcb213a752cfb729f0a\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -57,39 +120,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\mail\.android\build-cache\c3f64366ef51991dab3d4eeaf61f8a75da13ca98\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_3783c4ce2093cc3be1dab0cf6b031c818f4f7bc8.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\libs\activation.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\2\activation_a535818c2b911a8db780c5d69c8c1d20653073fa\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\mail\.android\build-cache\50e89445871526b90c2ea309a61109f91637d4ce\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
         <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_03a179de927aec15ff16e5169b41924eb0cdce09.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\mail\.android\build-cache\f3ae1837f90f1b0c29e2291838d42f43b09d56a7\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_268f6d0ca387f499ff8dbd4f6f032c6568db7350.jar" />
     </item>
     <item
         is-multidex="false"
@@ -111,39 +147,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3a98109cbb3d11fb380f8de16bb04c96aa1df4b9">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c996894fb53aa7c6db80c5164396510d6c2e515e\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\mail\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_e751db504dfb678a9fef7b0bc9d16b709b19dfa4.jar" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
         <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5633f1b24a54a06f20fe1f09b4ac5f6c06b2a042\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\mail\.android\build-cache\ebff782fcd299edeaea9275a4812d0b5ca33bb2a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_329b7c27dcfdaa286914985b558c10b65ad37be0.jar" />
     </item>
     <item
         is-multidex="false"
@@ -162,15 +171,6 @@
         revision="25.0.2"
         sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
         <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\pre-dexed\debug\classes_52dc911771091d001044d25476efb6442693985d.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\libs\mail.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="428e267abff0d10802ccde86b915da2c20471160">
-        <dex dex="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\transforms\dex\debug\folders\1000\2\mail_b3f55d8febb72288203f94556e6d004b64ec31e9\classes.dex" />
     </item>
     <item
         is-multidex="false"

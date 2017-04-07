@@ -49,6 +49,7 @@ public class Main2Activity extends AppCompatActivity {
                     if(c.getCount()==0)
                     {
                         Toast.makeText(getApplicationContext(),"Wrong PIN",Toast.LENGTH_SHORT).show();
+                        a2pin.setText("");
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
