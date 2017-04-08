@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="23"
+    abi="x86"
+    api-level="24"
     build-mode="COLD"
     density="xxhdpi"
     format="10"
     plugin-version="2.3.0"
-    timestamp="1491589431461"
+    timestamp="1491676854413"
     token="8786770407552353973"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="623" />
+        duration="593" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="141" />
+        duration="146" />
     <task
         name="verifier"
-        duration="21" />
+        duration="43" />
 
     <artifact
         location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
-    <artifact
-        location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\outputs\apk\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1491589174020"
+        timestamp="1491674897623"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\outputs\apk\app-debug.apk"
@@ -73,7 +70,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1491589294201"
+        timestamp="1491675779573"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -81,20 +78,22 @@
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1491676209299"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        timestamp="1491589431461"
+        timestamp="1491676854413"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
-        <artifact
-            location="C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\build\outputs\apk\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

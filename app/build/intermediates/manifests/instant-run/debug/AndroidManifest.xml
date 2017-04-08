@@ -47,7 +47,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.amalkjose.whatsappassistant.SheduleContacts"
-            android:label="@string/title_activity_shedule_contacts"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service

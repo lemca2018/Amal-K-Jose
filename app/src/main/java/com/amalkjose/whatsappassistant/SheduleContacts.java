@@ -1,13 +1,19 @@
 package com.amalkjose.whatsappassistant;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,29 +23,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
-
 public class SheduleContacts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     List<Person> cont;
     ListView listView;
-    EditText editText;
-    String[] items;
-    String[] numbers;
+    EditText editText,dt,tm,ctext;
+    String[] items,numbers;
+    String contact;
     ArrayAdapter<String> adapter;
     ArrayList<String> listItems;
+    private int mYear, mMonth, mDay, mHour, mMinute;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +83,81 @@ public class SheduleContacts extends AppCompatActivity
 
             }
         });
-       // Toast.makeText(getApplicationContext(),cont.get(139).name,Toast.LENGTH_SHORT).show();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getApplicationContext(),(String)parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+                contact=parent.getItemAtPosition(position).toString();
+                AlertDialog.Builder builder = new AlertDialog.Builder(SheduleContacts.this);
+                LayoutInflater inflater = (SheduleContacts.this).getLayoutInflater();
+                View dialogView=inflater.inflate(R.layout.dialog, null);
+                builder.setCancelable(false);
+                builder.setView(dialogView);
+                ctext= (EditText) dialogView.findViewById(R.id.sel_contact);
+                ctext.setText(contact);
+                dt= (EditText) dialogView.findViewById(R.id.date);
+                tm= (EditText) dialogView.findViewById(R.id.time);
+
+                dt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Calendar c = Calendar.getInstance();
+                        mYear = c.get(Calendar.YEAR);
+                        mMonth = c.get(Calendar.MONTH);
+                        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                        DatePickerDialog datePickerDialog = new DatePickerDialog(SheduleContacts.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year,
+                                                          int monthOfYear, int dayOfMonth) {
+                                        dt.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                    }
+                                }, mYear, mMonth, mDay);
+
+                        datePickerDialog.show();
+                    }
+                });
+                tm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Calendar c = Calendar.getInstance();
+                        mHour = c.get(Calendar.HOUR_OF_DAY);
+                        mMinute = c.get(Calendar.MINUTE);
+
+                        // Launch Time Picker Dialog
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(SheduleContacts.this,
+                                new TimePickerDialog.OnTimeSetListener() {
+
+                                    @Override
+                                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                                          int minute) {
+                                        String AM_PM ;
+                                        if(hourOfDay < 12) {
+                                            AM_PM = "AM";
+                                            if(hourOfDay==0){
+                                                hourOfDay=12;
+                                            }
+                                        } else {
+                                            AM_PM = "PM";
+                                            hourOfDay=hourOfDay-12;
+                                            if(hourOfDay==0){
+                                                hourOfDay=12;
+                                            }
+                                        }
+                                        tm.setText(hourOfDay + ":" + minute+ "  " +AM_PM);
+                                    }
+                                }, mHour, mMinute, false);
+                        timePickerDialog.show();
+                    }
+                });
+
+                builder.create();
+                builder.show();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -149,42 +235,48 @@ public class SheduleContacts extends AppCompatActivity
     }
 
     public void load_contacts(){
-        String[] projection    = new String[] {
-                ContactsContract.RawContacts._ID,
-                ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY,
-                ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
-                ContactsContract.CommonDataKinds.Phone.NUMBER
-        };
-        Cursor people = getContentResolver().query(  ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                projection,
-                ContactsContract.RawContacts.ACCOUNT_TYPE + "= ?",
-                new String[] { "com.whatsapp" },
-                null);
-        int indexName = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-        int indexNumber = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-        int indexUid=people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID);
-        if(people != null   && people.moveToFirst()) {
-            items=new String[people.getCount()];
-            int i=0;
-            do{
-                Person p = new Person();
-                p.name = people.getString(indexName);
-                p.phone = people.getString(indexNumber);
-                p.cid = people.getString(indexUid);
-                cont.add(p);
-                items[i]=people.getString(indexName);
-                i++;
-            }while (people.moveToNext());
-            Arrays.sort(items);
-            numbers=new String[people.getCount()];
-            for(int j=0;j<people.getCount();j++){
-                numbers[j]=items[j];
+        try {
+            String[] projection = new String[]{
+                    ContactsContract.RawContacts._ID,
+                    ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
+                    ContactsContract.CommonDataKinds.Phone.NUMBER
+            };
+            Cursor people = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    projection,
+                    ContactsContract.RawContacts.ACCOUNT_TYPE + "= ?",
+                    new String[]{"com.whatsapp"},
+                    null);
+            int indexName = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            int indexNumber = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            int indexUid = people.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID);
+            if (people != null && people.moveToFirst()) {
+                items = new String[people.getCount()];
+                int i = 0;
+                do {
+                    Person p = new Person();
+                    p.name = people.getString(indexName);
+                    p.phone = people.getString(indexNumber);
+                    p.cid = people.getString(indexUid);
+                    cont.add(p);
+                    items[i] = people.getString(indexName) + "\n" + people.getString(indexNumber);
+                    i++;
+                } while (people.moveToNext());
+                Arrays.sort(items);
+                numbers = new String[people.getCount()];
+                for (int j = 0; j < people.getCount(); j++) {
+                    numbers[j] = items[j];
+                }
             }
+            people.close();
+            listItems = new ArrayList<>(Arrays.asList(items));
+            adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.textitem, listItems);
+            listView.setAdapter(adapter);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"No Whatsapp Contacts Found..!",Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(SheduleContacts.this,MainActivity.class);
+            startActivity(intent);
         }
-        people.close();
-        listItems=new ArrayList<>(Arrays.asList(items));
-        adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.textitem,listItems);
-        listView.setAdapter(adapter);
     }
 }
 class Person{

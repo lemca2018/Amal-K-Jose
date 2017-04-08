@@ -36,6 +36,10 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog.xml",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\dialog.xml"
+    },
+    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_shedule_contacts.xml",
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\activity_shedule_contacts.xml"
     },

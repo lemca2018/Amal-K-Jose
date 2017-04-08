@@ -1,6 +1,7 @@
 package com.amalkjose.whatsappassistant;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +17,21 @@ public class Main2Activity extends AppCompatActivity {
     Button a2contbtn,a2forgbtn;
     EditText a2pin;
     Integer pin;
+    boolean isInstalled;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        PackageManager pm = getApplicationContext().getPackageManager();
+        isInstalled = isPackageInstalled("com.whatsapp", pm);
+        if(!isInstalled){
+            Toast.makeText(this,"This app required Whatsapp installed..!",Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else {
+            Toast.makeText(this,"Whatsapp identified..!",Toast.LENGTH_SHORT).show();
+        }
 
         db = openOrCreateDatabase("wp_assistant",MODE_PRIVATE,null);
         db.execSQL("CREATE TABLE IF NOT EXISTS loginpin(email VARCHAR,pin VARCHAR);");
@@ -75,5 +87,13 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+    public boolean isPackageInstalled(String packagename, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packagename, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }
