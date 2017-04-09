@@ -3,12 +3,17 @@ package com.amalkjose.whatsappassistant;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,9 +23,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,11 +40,17 @@ import java.util.Arrays;
 public class SheduleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ListView listView;
-    EditText editText;
     String[] items;
+    String contact,cid;
+    Button ok,delete;
+    RadioGroup rg;
+    RadioButton rb1,rb2;
+    ImageView imageview;
     SQLiteDatabase db;
+    Boolean isPic=false;
     ArrayList<String> listItems;
     ArrayAdapter<String> adapter;
+    EditText editText,dt,tm,ctext,msg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +104,95 @@ public class SheduleActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                contact=parent.getItemAtPosition(position).toString();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(SheduleActivity.this);
+                LayoutInflater inflater = (SheduleActivity.this).getLayoutInflater();
+                View dialogView=inflater.inflate(R.layout.dialog_2, null);
+                builder.setCancelable(false);
+                builder.setView(dialogView);
+                String[] separated = contact.split("\n");
+                String cname = separated[0];
+                String cphone = separated[1];
+                String cdt_tm = separated[2];
+                String[] separated2 = cdt_tm.split(" ");
+                String cdt = separated2[0];
+                String ctm = separated2[1];
+                String cmsg="";
+                String cimage=null;
+                try {
+                    db = openOrCreateDatabase("wp_assistant",MODE_PRIVATE,null);
+                    Cursor cur=db.rawQuery("SELECT * FROM shedule_msg where status=1 and name='"+cname+"' and phone='"+cphone+"' and datetime='"+cdt_tm+"' ", null);
+                    if(cur.getCount()==1){
+                        cur.moveToFirst();
+                        cmsg = cur.getString(cur.getColumnIndex("message"));
+                        cimage = cur.getString(cur.getColumnIndex("image"));
+                        cid = cur.getString(cur.getColumnIndex("id"));
+                        cur.close();
+                    }
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),"No Shedules found..!",Toast.LENGTH_SHORT).show();
+                }
+
+                ctext= (EditText) dialogView.findViewById(R.id.sel_contact);
+                ctext.setText(cname+"\n"+cphone);
+                dt= (EditText) dialogView.findViewById(R.id.date);
+                dt.setText(cdt);
+                msg= (EditText) dialogView.findViewById(R.id.msg);
+                msg.setText(cmsg);
+                tm= (EditText) dialogView.findViewById(R.id.time);
+                tm.setText(ctm);
+                rb1=(RadioButton) dialogView.findViewById(R.id.mtype_p);
+                rb2=(RadioButton) dialogView.findViewById(R.id.mtype_t);
+                rg = (RadioGroup) dialogView.findViewById(R.id.mtype);
+                imageview = (ImageView) dialogView.findViewById(R.id.iv_send);
+                if(cimage.equals("no")){
+                    rb2.setEnabled(true);
+                    rb2.setChecked(true);
+                    isPic=false;
+                    imageview.setVisibility(View.INVISIBLE);
+                    LinearLayout.LayoutParams parms2 = new LinearLayout.LayoutParams(0,0 );
+                    parms2.gravity= Gravity.CENTER;
+                    imageview.setLayoutParams(parms2);
+
+                }
+                else {
+                    isPic=true;
+                    rb1.setEnabled(true);
+                    rb1.setChecked(true);
+                    imageview.setVisibility(View.VISIBLE);
+                    imageview.setImageURI(Uri.parse("file://"+cimage));
+                    Integer w= (int)(150 * getApplicationContext().getResources().getDisplayMetrics().density);
+                    LinearLayout.LayoutParams parms2 = new LinearLayout.LayoutParams(w,w );
+                    parms2.gravity= Gravity.CENTER;
+                    imageview.setLayoutParams(parms2);
+                }
+
+                ok=(Button)dialogView.findViewById(R.id.close);
+                delete=(Button)dialogView.findViewById(R.id.delete);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+                delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        db.execSQL("delete from shedule_msg where id="+cid);
+                        Toast.makeText(getApplicationContext(),"Message Removed..!",Toast.LENGTH_SHORT).show();
+                        Intent in=new Intent(SheduleActivity.this,SheduleActivity.class);
+                        startActivity(in);
+                    }
+                });
+            }
+        });
     }
 
     public void searchItem(String text){

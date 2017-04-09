@@ -159,6 +159,7 @@ public class SheduleContacts extends AppCompatActivity
                                 LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(w,w);
                                 parms.gravity= Gravity.CENTER;
                                 imageview.setLayoutParams(parms);
+
                                 break;
                             case R.id.mtype_t:
                                 msg.setHint("Message");
@@ -304,7 +305,7 @@ public class SheduleContacts extends AppCompatActivity
                                 Toast.makeText(getApplicationContext(),"Please type your message",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','null',1)");
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','no',1)");
                         }
                         Toast.makeText(getApplicationContext(),"Message Saved..!",Toast.LENGTH_SHORT).show();
                         alertDialog.dismiss();
