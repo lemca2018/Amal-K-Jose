@@ -8,18 +8,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -38,6 +42,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -64,11 +70,15 @@ public class SheduleContacts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     List<Person> cont;
     ListView listView;
-    EditText editText,dt,tm,ctext;
+    EditText editText,dt,tm,ctext,msg;
     String[] items,numbers;
-    String contact;
+    String contact,img_path,s_time;
+    Button ok,cancel;
     ArrayAdapter<String> adapter;
+    RadioGroup rg;
+    Boolean isPic=false;
     ArrayList<String> listItems;
+    SQLiteDatabase db;
 
     //Image Start-1
 
@@ -118,10 +128,10 @@ public class SheduleContacts extends AppCompatActivity
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 //Toast.makeText(getApplicationContext(),(String)parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
                 contact=parent.getItemAtPosition(position).toString();
-                AlertDialog.Builder builder = new AlertDialog.Builder(SheduleContacts.this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(SheduleContacts.this);
                 LayoutInflater inflater = (SheduleContacts.this).getLayoutInflater();
                 View dialogView=inflater.inflate(R.layout.dialog, null);
                 builder.setCancelable(false);
@@ -129,10 +139,41 @@ public class SheduleContacts extends AppCompatActivity
                 ctext= (EditText) dialogView.findViewById(R.id.sel_contact);
                 ctext.setText(contact);
                 dt= (EditText) dialogView.findViewById(R.id.date);
+                msg= (EditText) dialogView.findViewById(R.id.msg);
                 tm= (EditText) dialogView.findViewById(R.id.time);
-
-                //Image Start-2
+                rg = (RadioGroup) dialogView.findViewById(R.id.mtype);
                 imageview = (ImageView) dialogView.findViewById(R.id.iv_send);
+                ok=(Button)dialogView.findViewById(R.id.shedule);
+                cancel=(Button)dialogView.findViewById(R.id.cancel);
+
+
+
+
+                rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                        switch(checkedId){
+                            case R.id.mtype_p:
+                                msg.setHint("Image Caption");
+                                isPic=true;
+                                imageview.setVisibility(View.VISIBLE);
+                                Integer w= (int)(150 * getApplicationContext().getResources().getDisplayMetrics().density);
+                                LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(w,w);
+                                parms.gravity= Gravity.CENTER;
+                                imageview.setLayoutParams(parms);
+                                break;
+                            case R.id.mtype_t:
+                                msg.setHint("Message");
+                                isPic=false;
+                                imageview.setVisibility(View.INVISIBLE);
+                                LinearLayout.LayoutParams parms2 = new LinearLayout.LayoutParams(0,0 );
+                                parms2.gravity= Gravity.CENTER;
+                                imageview.setLayoutParams(parms2);
+                                break;
+                        }
+                    }
+                });
+                //Image Start-2
                 imageview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -173,6 +214,7 @@ public class SheduleContacts extends AppCompatActivity
                                     @Override
                                     public void onTimeSet(TimePicker view, int hourOfDay,
                                                           int minute) {
+                                        s_time=hourOfDay+":" + minute;
                                         String AM_PM ;
                                         if(hourOfDay < 12) {
                                             AM_PM = "AM";
@@ -193,8 +235,54 @@ public class SheduleContacts extends AppCompatActivity
                     }
                 });
 
-                builder.create();
-                builder.show();
+                final AlertDialog alertDialog = builder.create();
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+                alertDialog.show();
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String date=dt.getText().toString();
+                        String time=s_time;
+                        String message=msg.getText().toString();
+                        String[] separated = contact.split("\n");
+                        String cname = separated[0];
+                        String cphone = separated[1];
+                        String image_path=img_path;
+                        db = openOrCreateDatabase("wp_assistant",MODE_PRIVATE,null);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS shedule_msg(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR,phone VARCHAR,datetime VARCHAR,message VARCHAR,image VARCHAR);");
+
+                        if(TextUtils.isEmpty(date)) {
+                            Toast.makeText(getApplicationContext(),"Please select a valid Date",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if(TextUtils.isEmpty(time)) {
+                            Toast.makeText(getApplicationContext(),"Please select a valid Time",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if(isPic){
+                            if(TextUtils.isEmpty(image_path)) {
+                                Toast.makeText(getApplicationContext(),"Please select a valid Image",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','"+image_path+"')");
+                        }
+                        else{
+                            if(TextUtils.isEmpty(message)) {
+                                Toast.makeText(getApplicationContext(),"Please type your message",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','null')");
+                        }
+                        Toast.makeText(getApplicationContext(),"Message Saved..!",Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                    }
+                });
             }
         });
 
@@ -380,7 +468,8 @@ public class SheduleContacts extends AppCompatActivity
 
                 imgPath = destination.getAbsolutePath();
                 imageview.setImageBitmap(bitmap);
-                Toast.makeText(getApplicationContext(),String.valueOf(destination),Toast.LENGTH_LONG).show();
+                img_path=String.valueOf(destination);
+                Toast.makeText(getApplicationContext(),"destination"+String.valueOf(destination),Toast.LENGTH_LONG).show();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -391,7 +480,6 @@ public class SheduleContacts extends AppCompatActivity
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
-                Log.e("Activity", "Pick from Gallery::>>> ");
 
                 imgPath = getRealPathFromURI(selectedImage);
                 destination = new File(imgPath.toString());
@@ -402,7 +490,8 @@ public class SheduleContacts extends AppCompatActivity
 
                 try {
                     FileUtils.copyFile(new File(destination.toString()), new File(copy_path));
-                    Toast.makeText(getApplicationContext(),String.valueOf(copy_path),Toast.LENGTH_SHORT).show();
+                    img_path=String.valueOf(copy_path);
+                    Toast.makeText(getApplicationContext(),"Copypath"+String.valueOf(copy_path),Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
@@ -410,7 +499,7 @@ public class SheduleContacts extends AppCompatActivity
 
 
                 imageview.setImageBitmap(bitmap);
-                Toast.makeText(getApplicationContext(),String.valueOf(destination),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"destinati"+String.valueOf(destination),Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
