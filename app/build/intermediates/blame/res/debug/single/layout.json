@@ -68,6 +68,10 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\three_line_list.xml",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\layout\\three_line_list.xml"
+    },
+    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\layout\\abc_action_menu_layout.xml"
     },

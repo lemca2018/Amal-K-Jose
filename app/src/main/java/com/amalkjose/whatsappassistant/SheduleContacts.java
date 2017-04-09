@@ -57,6 +57,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,13 +73,14 @@ public class SheduleContacts extends AppCompatActivity
     ListView listView;
     EditText editText,dt,tm,ctext,msg;
     String[] items,numbers;
-    String contact,img_path,s_time;
+    String contact,img_path;
     Button ok,cancel;
     ArrayAdapter<String> adapter;
     RadioGroup rg;
     Boolean isPic=false;
     ArrayList<String> listItems;
     SQLiteDatabase db;
+    String hh,mm,ss,tt,MM,dd,yyyy;
 
     //Image Start-1
 
@@ -129,7 +131,6 @@ public class SheduleContacts extends AppCompatActivity
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-                //Toast.makeText(getApplicationContext(),(String)parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
                 contact=parent.getItemAtPosition(position).toString();
                 final AlertDialog.Builder builder = new AlertDialog.Builder(SheduleContacts.this);
                 LayoutInflater inflater = (SheduleContacts.this).getLayoutInflater();
@@ -145,9 +146,6 @@ public class SheduleContacts extends AppCompatActivity
                 imageview = (ImageView) dialogView.findViewById(R.id.iv_send);
                 ok=(Button)dialogView.findViewById(R.id.shedule);
                 cancel=(Button)dialogView.findViewById(R.id.cancel);
-
-
-
 
                 rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -195,7 +193,21 @@ public class SheduleContacts extends AppCompatActivity
                                     @Override
                                     public void onDateSet(DatePicker view, int year,
                                                           int monthOfYear, int dayOfMonth) {
-                                        dt.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                        yyyy=String.valueOf(year);
+                                        if(monthOfYear<10){
+                                            MM="0"+String.valueOf(monthOfYear+1);
+                                        }
+                                        else {
+                                            MM=String.valueOf(monthOfYear+1);
+                                        }
+                                        if(dayOfMonth<10){
+                                            dd="0"+String.valueOf(dayOfMonth);
+                                        }
+                                        else {
+                                            dd=String.valueOf(dayOfMonth);
+                                        }
+
+                                        dt.setText(dd + "/" + MM + "/" + yyyy);
                                     }
                                 }, mYear, mMonth, mDay);
                         datePickerDialog.show();
@@ -208,27 +220,42 @@ public class SheduleContacts extends AppCompatActivity
                         final Calendar c = Calendar.getInstance();
                         mHour = c.get(Calendar.HOUR_OF_DAY);
                         mMinute = c.get(Calendar.MINUTE);
+
                         TimePickerDialog timePickerDialog = new TimePickerDialog(SheduleContacts.this,
                                 new TimePickerDialog.OnTimeSetListener() {
 
                                     @Override
                                     public void onTimeSet(TimePicker view, int hourOfDay,
                                                           int minute) {
-                                        s_time=hourOfDay+":" + minute;
-                                        String AM_PM ;
+                                        ss="00";
                                         if(hourOfDay < 12) {
-                                            AM_PM = "AM";
+                                            tt = "AM";
                                             if(hourOfDay==0){
                                                 hourOfDay=12;
                                             }
-                                        } else {
-                                            AM_PM = "PM";
+                                        }
+                                        else {
+                                            tt = "PM";
                                             hourOfDay=hourOfDay-12;
                                             if(hourOfDay==0){
                                                 hourOfDay=12;
                                             }
                                         }
-                                        tm.setText(hourOfDay + ":" + minute+ "  " +AM_PM);
+
+                                        if(hourOfDay<10){
+                                            hh="0"+String.valueOf(hourOfDay);
+                                        }
+                                        else {
+                                            hh=String.valueOf(hourOfDay);
+                                        }
+                                        if(minute<10){
+                                            mm="0"+String.valueOf(minute);
+                                        }
+                                        else{
+                                            mm=String.valueOf(minute);
+                                        }
+
+                                        tm.setText(hh+":"+mm+":"+ss+" "+tt);
                                     }
                                 }, mHour, mMinute, false);
                         timePickerDialog.show();
@@ -247,14 +274,14 @@ public class SheduleContacts extends AppCompatActivity
                     @Override
                     public void onClick(View v) {
                         String date=dt.getText().toString();
-                        String time=s_time;
+                        String time=tm.getText().toString();
                         String message=msg.getText().toString();
                         String[] separated = contact.split("\n");
                         String cname = separated[0];
                         String cphone = separated[1];
                         String image_path=img_path;
                         db = openOrCreateDatabase("wp_assistant",MODE_PRIVATE,null);
-                        db.execSQL("CREATE TABLE IF NOT EXISTS shedule_msg(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR,phone VARCHAR,datetime VARCHAR,message VARCHAR,image VARCHAR);");
+                        db.execSQL("CREATE TABLE IF NOT EXISTS shedule_msg(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR,phone VARCHAR,datetime VARCHAR,message VARCHAR,image VARCHAR,status Integer);");
 
                         if(TextUtils.isEmpty(date)) {
                             Toast.makeText(getApplicationContext(),"Please select a valid Date",Toast.LENGTH_SHORT).show();
@@ -270,14 +297,14 @@ public class SheduleContacts extends AppCompatActivity
                                 Toast.makeText(getApplicationContext(),"Please select a valid Image",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','"+image_path+"')");
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','"+image_path+"',1)");
                         }
                         else{
                             if(TextUtils.isEmpty(message)) {
                                 Toast.makeText(getApplicationContext(),"Please type your message",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','null')");
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','null',1)");
                         }
                         Toast.makeText(getApplicationContext(),"Message Saved..!",Toast.LENGTH_SHORT).show();
                         alertDialog.dismiss();
@@ -312,7 +339,7 @@ public class SheduleContacts extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            startActivity(new Intent(SheduleContacts.this,SheduleActivity.class));
         }
     }
 
@@ -469,7 +496,6 @@ public class SheduleContacts extends AppCompatActivity
                 imgPath = destination.getAbsolutePath();
                 imageview.setImageBitmap(bitmap);
                 img_path=String.valueOf(destination);
-                Toast.makeText(getApplicationContext(),"destination"+String.valueOf(destination),Toast.LENGTH_LONG).show();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -491,15 +517,12 @@ public class SheduleContacts extends AppCompatActivity
                 try {
                     FileUtils.copyFile(new File(destination.toString()), new File(copy_path));
                     img_path=String.valueOf(copy_path);
-                    Toast.makeText(getApplicationContext(),"Copypath"+String.valueOf(copy_path),Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
                 }
 
 
                 imageview.setImageBitmap(bitmap);
-                Toast.makeText(getApplicationContext(),"destinati"+String.valueOf(destination),Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }

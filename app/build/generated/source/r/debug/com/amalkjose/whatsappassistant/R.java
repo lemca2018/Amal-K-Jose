@@ -3428,6 +3428,7 @@ containing a value of this type.
         public static final int select_dialog_multichoice_material=0x7f040048;
         public static final int select_dialog_singlechoice_material=0x7f040049;
         public static final int support_simple_spinner_dropdown_item=0x7f04004a;
+        public static final int three_line_list=0x7f04004b;
     }
     public static final class menu {
         public static final int activity_main_drawer=0x7f0e0000;

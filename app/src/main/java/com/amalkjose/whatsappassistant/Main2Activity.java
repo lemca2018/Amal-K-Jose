@@ -29,10 +29,6 @@ public class Main2Activity extends AppCompatActivity {
             Toast.makeText(this,"This app required WhatsApp installed..!",Toast.LENGTH_SHORT).show();
             finish();
         }
-        else {
-            Toast.makeText(this,"WhatsApp identified..!",Toast.LENGTH_SHORT).show();
-        }
-
         db = openOrCreateDatabase("wp_assistant",MODE_PRIVATE,null);
         db.execSQL("CREATE TABLE IF NOT EXISTS loginpin(email VARCHAR,pin VARCHAR);");
         Cursor c = db.rawQuery("SELECT * FROM loginpin", null);
