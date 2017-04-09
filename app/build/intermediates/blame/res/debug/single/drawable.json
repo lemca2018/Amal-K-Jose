@@ -48,6 +48,10 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\find.jpg",
+        "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\drawable\\find.jpg"
+    },
+    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\send_group.png",
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\drawable\\send_group.png"
     },
@@ -116,12 +120,12 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\1ad17860fce8ead65056aac76125cf5246ca71ba\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
-        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logo.jpg",
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\drawable\\logo.jpg"
+    },
+    {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\side_nav_bar.xml",
@@ -172,12 +176,12 @@
         "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logout.png",
         "source": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\src\\main\\res\\drawable\\logout.png"
+    },
+    {
+        "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\mail\\.android\\build-cache\\df88892ab448e9578f46aef0e3c2527998968961\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\mail\\AndroidStudioProjects\\WhatsAppAssistant\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",

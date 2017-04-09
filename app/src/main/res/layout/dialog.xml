@@ -7,31 +7,78 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
+        android:editable="false"
+        android:focusable="false"
         android:id="@+id/sel_contact"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
-    <EditText
-        android:id="@+id/date"
-        android:editable="false"
-        android:layout_width="0dp"
-        android:layout_weight=".55"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:hint="Date"
-        android:textColor="#000"/>
-    <EditText
-        android:id="@+id/time"
-        android:editable="false"
-        android:layout_width="0dp"
-        android:layout_weight=".45"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:hint="Time"
-        android:textColor="#000"/>
+        <EditText
+            android:id="@+id/date"
+            android:editable="false"
+            android:layout_width="0dp"
+            android:layout_weight=".55"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="Date"/>
+        <EditText
+            android:id="@+id/time"
+            android:editable="false"
+            android:layout_width="0dp"
+            android:layout_weight=".45"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="Time"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".40"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:text="Message Type"/>
+        <RadioGroup
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:id="@+id/mtype"
+            android:orientation="horizontal"
+            android:layout_weight=".60">
+            <RadioButton
+                android:layout_width="0dp"
+                android:id="@+id/mtype_t"
+                android:layout_weight=".45"
+                android:checked="true"
+                android:layout_height="wrap_content"
+                android:text="Text"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:id="@+id/mtype_p"
+                android:layout_weight=".55"
+                android:layout_height="wrap_content"
+                android:text="Image"/>
+        </RadioGroup>
+    </LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/msg"
+        android:hint="Message / Caption"
+        android:layout_marginTop="15dp"
+        android:maxLines="2"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:maxHeight="150dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:src="@drawable/find"
+        android:id="@+id/iv_send"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

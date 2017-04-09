@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:2:1-48:12
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:2:1-57:12
 	package
 		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:3:5-46
 		INJECTED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml
@@ -25,8 +25,26 @@ ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\An
 		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:10:9-35
 	android:name
 		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:9:9-56
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:11:5-13:38
+	android:minSdkVersion
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:13:9-35
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:12:9-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:14:5-16:38
+	android:minSdkVersion
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:16:9-35
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:15:9-65
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:17:5-19:38
+	android:minSdkVersion
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:19:9-35
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:18:9-49
 application
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:12:5-46:19
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:21:5-55:19
 MERGED from [com.android.support:design:25.1.1] C:\Users\mail\.android\build-cache\1ad17860fce8ead65056aac76125cf5246ca71ba\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\mail\.android\build-cache\df88892ab448e9578f46aef0e3c2527998968961\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\mail\.android\build-cache\f3ae1837f90f1b0c29e2291838d42f43b09d56a7\output\AndroidManifest.xml:22:5-20
@@ -40,69 +58,69 @@ MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\mail\.andro
 MERGED from [com.android.support:support-compat:25.1.1] C:\Users\mail\.android\build-cache\80f2f1e96ceda52aeb14527ffea073ec21a58d2a\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\mail\.android\build-cache\ebff782fcd299edeaea9275a4812d0b5ca33bb2a\output\AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:24:9-41
 	android:supportsRtl
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:26:9-35
 	android:roundIcon
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:25:9-54
 	android:allowBackup
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:22:9-35
 	android:icon
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:14:9-42
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:23:9-42
 	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:18:9-40
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:27:9-40
 activity#com.amalkjose.whatsappassistant.Main2Activity
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:19:9-28:20
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:28:9-37:20
 	android:label
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:21:13-45
-	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:22:13-56
-	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:20:13-42
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:23:13-27:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:24:17-69
-	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:24:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:26:17-77
-	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:26:27-74
-activity#com.amalkjose.whatsappassistant.MainActivity
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:29:9-31:59
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:30:13-45
 	android:theme
 		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:31:13-56
 	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:30:13-41
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:29:13-42
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:32:13-36:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:33:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:35:17-77
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:35:27-74
+activity#com.amalkjose.whatsappassistant.MainActivity
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:38:9-40:59
+	android:theme
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:40:13-56
+	android:name
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:39:13-41
 activity#com.amalkjose.whatsappassistant.Main3Activity
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:32:9-34:59
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:41:9-43:59
 	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:34:13-56
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:43:13-56
 	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:33:13-42
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:42:13-42
 activity#com.amalkjose.whatsappassistant.SheduleActivity
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:35:9-38:59
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:44:9-47:59
 	android:label
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:37:13-45
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:46:13-45
 	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:38:13-56
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:47:13-56
 	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:36:13-44
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:45:13-44
 activity#com.amalkjose.whatsappassistant.Resetpw
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:39:9-41:59
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:48:9-50:59
 	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:41:13-56
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:50:13-56
 	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:40:13-36
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:49:13-36
 activity#com.amalkjose.whatsappassistant.SheduleContacts
-ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:42:9-45:58
+ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:51:9-54:58
 	android:label
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:44:13-45
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:53:13-45
 	android:theme
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:45:13-56
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:54:13-56
 	android:name
-		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:43:13-44
+		ADDED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml:52:13-44
 uses-sdk
 INJECTED from C:\Users\mail\AndroidStudioProjects\WhatsAppAssistant\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.1.1] C:\Users\mail\.android\build-cache\1ad17860fce8ead65056aac76125cf5246ca71ba\output\AndroidManifest.xml:21:5-23:62
