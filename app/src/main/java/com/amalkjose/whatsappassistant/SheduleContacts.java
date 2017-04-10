@@ -69,7 +69,6 @@ import java.util.Locale;
 import java.util.Map;
 public class SheduleContacts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    List<Person> cont;
     ListView listView;
     EditText editText,dt,tm,ctext,msg;
     String[] items,numbers;
@@ -104,7 +103,6 @@ public class SheduleContacts extends AppCompatActivity
         setSupportActionBar(toolbar);
         listView=(ListView)findViewById(R.id.listview);
         editText=(EditText)findViewById(R.id.txtsearch);
-        cont = new ArrayList<Person>();
         load_contacts();
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -305,7 +303,7 @@ public class SheduleContacts extends AppCompatActivity
                                 Toast.makeText(getApplicationContext(),"Please type your message",Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','no',1)");
+                            db.execSQL("insert into shedule_msg(name,phone,datetime,message,image,status) values('"+cname+"','"+cphone+"','"+date+" "+time+"','"+message+"','null',1)");
                         }
                         Toast.makeText(getApplicationContext(),"Message Saved..!",Toast.LENGTH_SHORT).show();
                         alertDialog.dismiss();
@@ -411,11 +409,6 @@ public class SheduleContacts extends AppCompatActivity
                 items = new String[people.getCount()];
                 int i = 0;
                 do {
-                    Person p = new Person();
-                    p.name = people.getString(indexName);
-                    p.phone = people.getString(indexNumber);
-                    p.cid = people.getString(indexUid);
-                    cont.add(p);
                     items[i] = people.getString(indexName) + "\n" + people.getString(indexNumber);
                     i++;
                 } while (people.moveToNext());
@@ -537,12 +530,4 @@ public class SheduleContacts extends AppCompatActivity
         cursor.moveToFirst();
         return cursor.getString(column_index);
     }
-
-    //image End-3
-
-}
-class Person{
-    String name;
-    String phone;
-    String cid;
 }

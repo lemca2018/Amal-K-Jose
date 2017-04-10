@@ -1096,10 +1096,11 @@ int string path_password_eye 0x7f070029
 int string path_password_eye_mask_strike_through 0x7f07002a
 int string path_password_eye_mask_visible 0x7f07002b
 int string path_password_strike_through 0x7f07002c
+int string runtime_permissions_txt 0x7f07002d
 int string search_menu_title 0x7f070013
 int string status_bar_notification_info_overflow 0x7f070014
-int string title_activity_shedule 0x7f07002d
-int string title_activity_shedule_contacts 0x7f07002e
+int string title_activity_shedule 0x7f07002e
+int string title_activity_shedule_contacts 0x7f07002f
 int style AlertDialog_AppCompat 0x7f0900a1
 int style AlertDialog_AppCompat_Light 0x7f0900a2
 int style Animation_AppCompat_Dialog 0x7f0900a3

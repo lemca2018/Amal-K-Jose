@@ -211,7 +211,8 @@ public class SheduleActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent in=new Intent(SheduleActivity.this,MainActivity.class);
+            startActivity(in);
         }
     }
 

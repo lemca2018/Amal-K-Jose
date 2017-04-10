@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">WhatsApp Assistant</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="runtime_permissions_txt">Please enable ALL permissions from app settings.</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_shedule">SheduleActivity</string>
     <string name="title_activity_shedule_contacts">SheduleContacts</string>
