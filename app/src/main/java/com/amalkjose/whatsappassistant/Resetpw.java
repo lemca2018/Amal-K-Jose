@@ -33,6 +33,7 @@ public class Resetpw extends Activity implements OnClickListener{
     ProgressDialog pdialog = null;
     Context context = null;
     String rec, subject, textMessage,pin;
+    Boolean flag=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +85,12 @@ public class Resetpw extends Activity implements OnClickListener{
                 message.setSubject(subject);
                 message.setContent(textMessage, "text/html; charset=utf-8");
                 Transport.send(message);
+                flag=true;
             } catch(MessagingException e) {
+                flag=false;
                 e.printStackTrace();
             } catch(Exception e) {
+                flag=false;
                 e.printStackTrace();
             }
             return null;
@@ -95,10 +99,14 @@ public class Resetpw extends Activity implements OnClickListener{
         @Override
         protected void onPostExecute(String result) {
             pdialog.dismiss();
-            Toast toast= Toast.makeText(getApplicationContext(), "PIN number sent to registerd email id \n"+rec, Toast.LENGTH_LONG);
-            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
-            if( v != null) v.setGravity(Gravity.CENTER);
-            toast.show();
+            if(flag) {
+                Toast toast = Toast.makeText(getApplicationContext(), "PIN number sent to registerd email id \n" + rec, Toast.LENGTH_LONG);
+                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                if (v != null) v.setGravity(Gravity.CENTER);
+                toast.show();
+            }else {
+                Toast.makeText(getApplicationContext(), "Network error..!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
